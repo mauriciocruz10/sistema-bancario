@@ -1,0 +1,32 @@
+<!--
+  Generated template for the CuentasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Cuentas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="cuentas.length == 0">
+    <ion-label text-center class="errorLogin">
+      No tienes cuentas registradas
+    </ion-label>
+    <button ion-button block (click)="onClickNuevaCuenta()">
+      Solicita una nueva aquí
+    </button>
+
+    <ion-label *ngIf="tarjeta" padding-top text-center style="font-size: 17px; padding-left: 17px;">
+      Cuenta seleccionada {{tarjeta.name}}
+    </ion-label>
+  </div>
+
+  <div *ngIf="tarjeta" padding-top style="text-align: center">
+      <button text-center ion-button color="danger" (click)="onClickEnviar()">Enviar solicitud</button>
+  </div>
+
+</ion-content>

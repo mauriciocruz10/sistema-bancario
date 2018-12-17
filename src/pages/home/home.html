@@ -1,14 +1,36 @@
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>Sistema bancario</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input #email type="email" (keyup)="onChangeEmail(email.value)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input #password type="password" (keyup)="onChangePass(password.value)"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-label class="errorLogin" *ngIf="showErrorLogin">Usuario y/o contraseña inválidos</ion-label>
+
+  <div padding>
+    <button ion-button color="primary" block [disabled]="disabledButton" (click)="onClickIniciarSesion()">Iniciar
+      sesión</button>
+  </div>
+
+  <div padding>
+    <button ion-button color="primary" block [disabled]="disabledButtonRegistrar" (click)="onClickRegistrarse()">Registrarse</button>
+  </div>
+
 </ion-content>
